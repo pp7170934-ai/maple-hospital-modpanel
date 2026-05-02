@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: maple-hospital-modpanel
+    env: static
+    buildCommand: npm install -g pnpm@10.26.1 && pnpm install && PORT=3000 BASE_PATH=/ pnpm --filter @workspace/maple-hospital run build
+    staticPublishPath: ./artifacts/maple-hospital/dist/public
+    envVars:
+      - key: VITE_API_BASE_URL
+        sync: false
